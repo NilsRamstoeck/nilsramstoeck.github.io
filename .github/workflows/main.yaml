@@ -26,13 +26,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
-      - uses: actions/checkout@v3
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
           node-version: 20.x
+
       - run: npm ci
       - run: npm run build
+
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
