@@ -1,0 +1,27 @@
+{
+  "name": "nilsramstoeck.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node esbuild.mjs --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NilsRamstoeck/nilsramstoeck.github.io.git"
+  },
+  "author": "Nils Ramstöck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NilsRamstoeck/nilsramstoeck.github.io/issues"
+  },
+  "homepage": "https://github.com/NilsRamstoeck/nilsramstoeck.github.io#readme",
+  "devDependencies": {
+    "@types/node": "^20.4.2",
+    "esbuild": "^0.18.13",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "preact": "^10.16.0"
+  }
+}
