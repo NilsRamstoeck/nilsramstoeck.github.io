@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node esbuild.mjs",
     "dev": "node esbuild.mjs --watch"
   },
   "repository": {
