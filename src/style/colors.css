@@ -1,0 +1,35 @@
+:root {
+  --primarylight: #D60000;
+  --primary: #A10000;
+  --primarydark: #6C0202;
+  --successlight: #0f0;
+  --success: #00CC00;
+  --successdark: #090;
+  --errorlight: #f00;
+  --error: #E10303;
+  --errordark: #900;
+  --secondarylight: #AAA;
+  --secondary: #878787;
+  --secondarydark: #666;
+  --warninglight: #ff0;
+  --warning: #cc0;
+  --warningdark: #990;
+  --infolight: #69f;
+  --info: #36c;
+  --infodark: #039;
+  --welllight: #444444;
+  --well: #222222;
+  --white: #fff;
+  --black: #202020;
+  --hp: #dd3434;
+  --money: #ffd700;
+  --hack: #adff2f;
+  --combat: #faffdf;
+  --cha: #a671d1;
+  --int: #6495ed;
+  --rep: #faffdf;
+  --disabled: #66cfbc;
+  --backgroundprimary: #121212;
+  --backgroundsecondary: #121212;
+  --button: #373737;
+}

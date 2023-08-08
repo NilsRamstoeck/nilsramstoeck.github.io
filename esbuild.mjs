@@ -1,5 +1,7 @@
 import { context } from 'esbuild';
-import fs from 'node:fs';
+import fs from 'node:fs/promises';
+import { watch } from 'chokidar';
+import { glob } from 'glob';
 
 const WATCH = process.argv.includes('--watch');
 
@@ -30,6 +32,9 @@ const buildContext = await context({
 buildContext.rebuild();
 
 if (WATCH) {
-  buildContext.watch();
+  watch('./src/', {
+    recursive: true
+  })
+    .on('all', () => buildContext.rebuild());
 }
 else buildContext.dispose();
