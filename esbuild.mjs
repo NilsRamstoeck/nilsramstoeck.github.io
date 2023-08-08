@@ -10,7 +10,6 @@ try {
 
 const WATCH = process.argv.includes('--watch');
 
-// fs.cpSync('./src/public', './dist', { recursive: true });
 /** @type import('esbuild').Plugin */
 const indexHtmlPlug = {
   name: 'indexHtmlPlug',
@@ -29,6 +28,7 @@ const indexHtmlPlug = {
         }
       };
       recursivelyAddIndexHtml(start);
+      fs.cp('./src/public', './dist', { recursive: true });
     });
   }
 };
@@ -41,7 +41,7 @@ const buildContext = await context({
   keepNames: true,
   minify: !WATCH,
   bundle: true,
-  format: 'cjs',
+  format: 'esm',
   platform: 'browser',
   define: WATCH ? undefined : {
     'process.env.NODE_ENV': "'production'",
