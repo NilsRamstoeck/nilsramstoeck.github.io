@@ -1,20 +1,33 @@
 import { PlasmaWindow } from '@/components/PlasmaWindow';
 import { Taskbar } from '@/components/Taskbar';
 import { WindowManager, WindowManagerReducer } from '@/lib/WindowManager';
+import { BingoProgram } from '@/programs';
 import style from '@/style/DesktopEnviroment.css';
-import { createContext, h, Fragment } from 'preact';
-import { useReducer } from 'preact/hooks';
+import { createContext, h } from 'preact';
+import { useEffect, useReducer } from 'preact/hooks';
 
 type Props = {
 };
 
 export const WindowManagerContext = createContext<WindowManager>(null);
 
+export let WindowManagerInstance: WindowManager = [
+  { windows: [] },
+  () => { throw new Error('WindowManager is not available. Desktop Enviroment may not be running'); }
+];
+
+
 export function DesktopEnviroment({ }: Props) {
 
   const windowManager = useReducer(WindowManagerReducer, {
     windows: []
   });
+
+  WindowManagerInstance = windowManager;
+
+  useEffect(() => {
+    // BingoProgram.launch(windowManager);
+  }, []);
 
   return <div className='desktop-enviroment'>
     <style>{style}</style>

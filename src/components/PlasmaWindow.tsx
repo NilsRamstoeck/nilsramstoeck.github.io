@@ -16,6 +16,12 @@ type Props = {
   x?: number;
   y?: number;
   id: number;
+  width?: number;
+  minWidth?: number;
+  maxWidth?: number;
+  height?: number;
+  minHeight?: number;
+  maxHeight?: number;
 };
 
 let idCounter = 1;
@@ -38,6 +44,12 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
     minimized = false,
     x,
     y,
+    width,
+    minWidth,
+    maxWidth,
+    height,
+    minHeight,
+    maxHeight,
     icon
   } = props;
 
@@ -50,8 +62,8 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
   //effect to center the window if no start position was specified
   useEffect(() => {
     if (!draggableRef.current) return;
-    draggableRef.current.style.left = x ?? document.body.clientWidth / 2 - draggableRef.current.clientWidth / 2 + 'px';
-    draggableRef.current.style.top = y ?? document.body.clientHeight / 2 - draggableRef.current.clientHeight / 2 + 'px';
+    draggableRef.current.style.left = (x ?? document.body.clientWidth / 2 - draggableRef.current.clientWidth / 2) + 'px';
+    draggableRef.current.style.top = (y ?? document.body.clientHeight / 2 - draggableRef.current.clientHeight / 2) + 'px';
   }, []);
 
   return <Draggable _ref={draggableRef} x={x} y={y} active={isDraggable}>
@@ -72,7 +84,7 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
             setDraggable(false);
           }, { once: true });
         }} className='plasma-window-titlebar plasma-box-bottom'>
-        <span>{!icon || <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}{title}</span>
+        <span className='plasma-window-title'>{!icon || <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}{title}</span>
         <span>
           <div className="plasma-button plasma-fill plasma-square" onClick={() => requestAction({
             action: 'MINIMIZE',
@@ -88,7 +100,7 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
           </div>
         </span>
       </div>
-      <Resizable resizable={resizable}>
+      <Resizable minHeight={minHeight} minWidth={minWidth} maxHeight={maxHeight} maxWidth={maxWidth} height={height} width={width} resizable={resizable}>
         <PlasmaWindowContext.Provider value={props}>
           <div className="plasma-window-content">
             {children}

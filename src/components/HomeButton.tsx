@@ -10,7 +10,6 @@ export function HomeButton({ }: Props) {
   const [showMenu, setShowMenu] = useState(false);
 
   const menuRef = useRef();
-  console.log(menuRef.current);
   
   return <>
     <div className='taskbar-homebutton plasma-button plasma-box-inline'

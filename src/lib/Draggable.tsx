@@ -14,7 +14,7 @@ export function Draggable({ _ref, active = true, x, y, children }: PropsWithChil
 
   const [pos, setPos] = useState({ x: x ?? 0, y: y ?? 0 });
 
-  function mouseMove(e: MouseEvent, offset) {
+  function mouseMove(e: MouseEvent, offset: { x: number, y: number; }) {
     setPos({
       x: e.clientX - offset.x,
       y: e.clientY - offset.y

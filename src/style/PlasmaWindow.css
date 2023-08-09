@@ -10,7 +10,7 @@
   height: 30px;
 }
 
-.plasma-window-titlebar svg {
+.plasma-window-title svg {
   margin-right: 10px;
 }
 
@@ -40,5 +40,6 @@
 }
 
 .plasma-window .plasma-window-content {
-  padding: 5px;
+  width: 100%;
+  height: 100%;
 }

@@ -8,9 +8,9 @@ const root = document.getElementById('root');
 const MODULES_PATH = ['modules'];
 
 const BREAKPOINTS = {
-  'PHONE': { at: 575, module: 'Phone.js' },
-  'TABLET': { at: 990, module: 'Tablet.js' },
   'DESKTOP': { at: 1200, module: 'Desktop.js' },
+  'TABLET': { at: 990, module: 'Tablet.js' },
+  'PHONE': { at: 575, module: 'Phone.js' },
 } as const;
 
 
@@ -29,15 +29,14 @@ type Props = {
 function App({ module }: Props) {
   return <>
     <style>{colors}{style}</style>
-    <LazyLoaded fallback={<BootScreen></BootScreen>} module={''}></LazyLoaded>
+    <LazyLoaded fallback={<BootScreen></BootScreen>} module={module}></LazyLoaded>
   </>;
 };
 
 function getModuleFromBreakpoint() {
   for (const key in BREAKPOINTS) {
     const breakpoint = BREAKPOINTS[key as keyof typeof BREAKPOINTS];
-    console.log(window.visualViewport.width <= breakpoint.at);
-    if (window.visualViewport.width <= breakpoint.at) {
+    if (window.visualViewport.width > breakpoint.at) {
       //start array with emtpy string to prefix path with a slash
       return ['', ...MODULES_PATH, breakpoint.module].join('/');
     }
