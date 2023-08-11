@@ -55,7 +55,7 @@ export function Resizable({ width, minWidth, maxWidth, height, minHeight, maxHei
         display: 'flex',
         cursor: 'nwse-resize',
       }}
-      onMouseDown={(e) => {
+      onMouseDown={(_e) => {
         if (!resizable) return;
         if (!ref.current) return;
         const listener = (e: MouseEvent) => mouseMove(e);

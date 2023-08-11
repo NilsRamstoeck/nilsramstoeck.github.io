@@ -24,27 +24,27 @@ function getWindow(state: WindowManagerState, window: WindowManagerDispatch['win
 }
 
 const ActionHandler: WindowManagerActionHandlerMap = {
-  CREATE: function (state: WindowManagerState, { action, window }: WindowManagerDispatch<"CREATE">): WindowManagerState {
+  CREATE: function (state: WindowManagerState, { window }: WindowManagerDispatch<"CREATE">): WindowManagerState {
     if (getWindow(state, window))
       return;
     state.windows.unshift(window);
     return { ...state };
   },
-  CLOSE: function (state: WindowManagerState, { action, window }: WindowManagerDispatch<"CLOSE">): WindowManagerState {
+  CLOSE: function (state: WindowManagerState, { window }: WindowManagerDispatch<"CLOSE">): WindowManagerState {
     return {
       windows: state.windows.filter(w => w.id != window.id)
     };
   },
-  MINIMIZE: function (state: WindowManagerState, { action, window }: WindowManagerDispatch<"MINIMIZE">): WindowManagerState {
+  MINIMIZE: function (state: WindowManagerState, { window }: WindowManagerDispatch<"MINIMIZE">): WindowManagerState {
     getWindow(state, window).minimized = true;
     state.windows.unshift(state.windows.pop());
     return { ...state };
   },
-  MAXIMISE: function (state: WindowManagerState, { action, window }: WindowManagerDispatch<"MAXIMISE">): WindowManagerState {
+  MAXIMISE: function (state: WindowManagerState, { window }: WindowManagerDispatch<"MAXIMISE">): WindowManagerState {
     getWindow(state, window).minimized = true;
     return { ...state };
   },
-  FOCUS: function (state: WindowManagerState, { action, window }: WindowManagerDispatch<"FOCUS">): WindowManagerState {
+  FOCUS: function (state: WindowManagerState, { window }: WindowManagerDispatch<"FOCUS">): WindowManagerState {
     window.minimized = false;
     return {
       windows: [...state.windows.filter(w => w.id != window.id), window]

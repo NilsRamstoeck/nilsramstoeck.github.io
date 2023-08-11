@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "node esbuild.mjs",
-    "dev": "node esbuild.mjs --watch"
+    "dev": "node esbuild.mjs --watch",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",

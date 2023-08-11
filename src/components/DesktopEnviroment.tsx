@@ -1,7 +1,6 @@
 import { PlasmaWindow } from '@/components/PlasmaWindow';
 import { Taskbar } from '@/components/Taskbar';
 import { WindowManager, WindowManagerReducer } from '@/lib/WindowManager';
-import { BingoProgram } from '@/programs';
 import style from '@/style/DesktopEnviroment.css';
 import { createContext, h } from 'preact';
 import { useEffect, useReducer } from 'preact/hooks';

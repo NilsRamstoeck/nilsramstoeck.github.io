@@ -2,7 +2,7 @@
 import style from '@/style/Taskbar.css';
 import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { PlasmaWindow } from "@/components/PlasmaWindow";
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'preact/compat';
 import { h } from 'preact';
 import { useContext } from 'preact/hooks';
 

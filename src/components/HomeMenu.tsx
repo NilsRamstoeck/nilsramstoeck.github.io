@@ -1,6 +1,6 @@
 import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { BingoProgram } from "@/programs";
-import { faArrowsRotate, faFile, faPowerOff } from "@fortawesome/free-solid-svg-icons";
+import { faFile, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { h } from "preact";
 import { MutableRef, useContext } from "preact/hooks";

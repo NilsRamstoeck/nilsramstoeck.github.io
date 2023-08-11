@@ -1,8 +1,6 @@
-import { PlasmaWindowContext } from "@/components/PlasmaWindow";
 import { Program } from "@/lib/Program";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
 import { h } from 'preact';
-import { useContext } from "preact/hooks";
 
 export const BingoProgram = new Program({
   name: 'Bingo',
@@ -20,6 +18,5 @@ export const BingoProgram = new Program({
 });
 
 function WindowContents() {
-  const props = useContext(PlasmaWindowContext);
   return <span><iframe width='100%' height='100%' src="/bingo" frameBorder="0"></iframe></span>;
 }

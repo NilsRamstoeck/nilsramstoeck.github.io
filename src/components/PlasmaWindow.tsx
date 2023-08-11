@@ -78,7 +78,7 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
       })}
     >
       <div
-        onMouseDown={(e) => {
+        onMouseDown={(_e) => {
           setDraggable(true);
           addEventListener('mouseup', () => {
             setDraggable(false);
