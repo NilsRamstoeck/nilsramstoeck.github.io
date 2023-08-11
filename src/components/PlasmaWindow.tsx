@@ -6,11 +6,11 @@ import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { Resizable } from "@/lib/Resizable";
 import { h, createContext, createRef } from "preact";
 import { useContext, useEffect, useState } from "preact/hooks";
-import { PropsWithChildren } from "preact/compat";
+import { FunctionComponent, PropsWithChildren } from "preact/compat";
 
 type Props = {
   title?: string;
-  icon?: FontAwesomeIconProps['icon'];
+  Icon?: FontAwesomeIconProps['icon'] | FunctionComponent;
   resizable?: boolean;
   minimized?: boolean;
   x?: number;
@@ -50,7 +50,7 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
     height,
     minHeight,
     maxHeight,
-    icon
+    Icon
   } = props;
 
   const [{ windows }, requestAction] = useContext(WindowManagerContext);
@@ -84,7 +84,9 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
             setDraggable(false);
           }, { once: true });
         }} className='plasma-window-titlebar plasma-box-bottom'>
-        <span className='plasma-window-title'>{!icon || <FontAwesomeIcon icon={icon}></FontAwesomeIcon>}{title}</span>
+        <span className='plasma-window-title'>
+          {typeof Icon == 'function' ? <Icon></Icon> : <FontAwesomeIcon icon={Icon}></FontAwesomeIcon>}{title}
+        </span>
         <span>
           <div className="plasma-button plasma-fill plasma-square" onClick={() => requestAction({
             action: 'MINIMIZE',

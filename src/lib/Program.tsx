@@ -19,7 +19,7 @@ export class Program {
 
     this.options = {
       title: name,
-      icon: icon ?? faFile,
+      Icon: icon ?? faFile,
       children: <WindowContents></WindowContents>,
       ...options ?? {}
     };
