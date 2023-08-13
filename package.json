@@ -19,15 +19,17 @@
   },
   "homepage": "https://github.com/NilsRamstoeck/nilsramstoeck.github.io#readme",
   "devDependencies": {
-    "@types/node": "^20.4.2",
-    "esbuild": "^0.18.13",
+    "@types/node": "^20.4.10",
+    "chokidar": "^3.5.3",
+    "esbuild": "^0.19.1",
+    "esbuild-worker-plugin": "^1.0.2",
     "glob": "^10.3.3",
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "chokidar": "^3.5.3",
+    "monaco-editor": "^0.41.0",
     "preact": "^10.16.0",
     "react-spinners": "^0.13.8"
   }

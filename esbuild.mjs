@@ -1,7 +1,8 @@
-import { context, build } from 'esbuild';
+import { context } from 'esbuild';
 import fs from 'node:fs/promises';
 import { watch } from 'chokidar';
 import { glob } from 'glob';
+import { WorkerPlugin } from 'esbuild-worker-plugin';
 
 //Clear dist before building
 try {
@@ -33,33 +34,9 @@ const indexHtmlPlug = {
   }
 };
 
-/** @type import('esbuild').Plugin */
-const workerPlugin = {
-  name: 'WorkerPlugin',
-  setup: (pluginBuild) => {
-    pluginBuild.onLoad({ filter: /.*\.worker\.js$/, namespace: 'worker' }, (opt) => {
-      console.log(opt);
-      return { contents: `export default (opts) => new Worker('${opt.path}', opts)` };
-    });
-
-    pluginBuild.onResolve({ filter: /.*\.worker\.js$/ }, async ({ path, kind }) => {
-      if (kind != 'import-statement') throw new Error('Workers need to be imported using import statements');
-      const outfile = '/workers/' + path.split('/').reverse()[0];
-      await build({
-        entryPoints: [path],
-        outfile: pluginBuild.initialOptions.outdir + outfile,
-        bundle: true,
-        format: 'iife'
-      });
-      return { path: outfile, namespace: 'worker' };
-    });
-
-  }
-};
-
 const buildContext = await context({
   entryPoints: await glob('src/pages/**/*.ts{x,}'),
-  plugins: [indexHtmlPlug, workerPlugin],
+  plugins: [indexHtmlPlug, WorkerPlugin({workerOutdir: 'worker'})],
   outdir: './dist',
   splitting: true,
   keepNames: true,
