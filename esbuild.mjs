@@ -36,12 +36,12 @@ const indexHtmlPlug = {
 
 const buildContext = await context({
   entryPoints: await glob('src/pages/**/*.ts{x,}'),
-  plugins: [indexHtmlPlug, WorkerPlugin({workerOutdir: 'worker'})],
+  plugins: [indexHtmlPlug, WorkerPlugin({ workerOutdir: 'worker' })],
   outdir: './dist',
+  bundle: true,
   splitting: true,
   keepNames: true,
   minify: !WATCH,
-  bundle: true,
   format: 'esm',
   platform: 'browser',
   define: WATCH ? undefined : {
@@ -55,12 +55,13 @@ const buildContext = await context({
   logLevel: 'info'
 });
 
-buildContext.rebuild();
+try { await buildContext.rebuild(); } catch (_) { }
 
 if (WATCH) {
   watch('./src/', {
-    recursive: true
+    recursive: true,
+    persistent: true
   })
-    .on('all', () => buildContext.rebuild());
+    .on('all', async () => { try { await buildContext.rebuild(); } catch (_) { } });
 }
 else buildContext.dispose();
