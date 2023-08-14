@@ -41,9 +41,11 @@ export function MonacoEditor({ }: Props) {
       setEditorInstance((editorInstance) => {
         if (editorInstance) return editorInstance;
 
+        monaco.editor.setTheme('vs-dark');
         return monaco.editor.create(editorRef.current!, {
           value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
-          language: 'typescript'
+          language: 'typescript',
+          automaticLayout: true,
         });
       });
     }
@@ -51,8 +53,5 @@ export function MonacoEditor({ }: Props) {
     return () => editorInstance?.dispose();
   }, [editorRef.current]);
 
-  return <div ref={editorRef}  style="width: 800px; height: 600px; border: 1px solid #ccc">
-		<link rel="stylesheet" href="./index.css" />
-		<link rel="stylesheet" href="./style.css" />
-  </div>;
+  return <div ref={editorRef} className="monaco-container"></div>;
 }

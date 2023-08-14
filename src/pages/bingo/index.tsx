@@ -1,6 +1,7 @@
 import { h, Fragment, render } from "preact";
 import { Board } from "@/components/bingo/Board";
 import '@/style/bingo.css';
+import "@/style/fullscreen.css";
 import "normalize.css";
 
 const root = document.getElementById('root');

@@ -2,7 +2,8 @@ import { BootScreen } from "@/components/BootScreen";
 import { LazyLoaded } from "@/lib/LazyLoaded";
 import { h, Fragment, render } from "preact";
 import "@/style/colors.css";
-import "@/style/index.css";
+import "@/style/Plasma.css";
+import "@/style/fullscreen.css";
 import "normalize.css";
 
 const root = document.getElementById('root');

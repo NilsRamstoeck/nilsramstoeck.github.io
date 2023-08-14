@@ -1,5 +1,6 @@
 import { h, render, Fragment } from "preact";
 import { MonacoEditor } from "@/components/MonacoEditor";
+import "@/style/fullscreen.css";
 import "normalize.css";
 const root = document.getElementById('root');
 
@@ -15,7 +16,7 @@ type Props = {
 
 function App({ }: Props) {
   return <>
-    <link rel="stylesheet" href="index.css" />
-    <MonacoEditor></MonacoEditor>;
+    <link rel="stylesheet" href="./index.css" />
+    <MonacoEditor></MonacoEditor>
   </>;
 }
