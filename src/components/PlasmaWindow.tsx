@@ -1,7 +1,7 @@
 import { Draggable } from "@/lib/Draggable";
 import { faWindowMinimize, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon, FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import style from '@/style/PlasmaWindow.css';
+import '@/style/PlasmaWindow.css';
 import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { Resizable } from "@/lib/Resizable";
 import { h, createContext, createRef } from "preact";
@@ -67,7 +67,6 @@ export function PlasmaWindow(props: PropsWithChildren<Props>) {
   }, []);
 
   return <Draggable _ref={draggableRef} x={x} y={y} active={isDraggable}>
-    <style>{style}</style>
     <div style={{
       display: minimized ? 'none' : undefined
     }}

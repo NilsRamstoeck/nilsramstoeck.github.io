@@ -1,6 +1,9 @@
 import { DesktopEnviroment } from "@/components/DesktopEnviroment";
-import { h } from "preact";
+import { h, Fragment } from "preact";
 
 export default () => {
-  return <DesktopEnviroment></DesktopEnviroment>;
+  return <>
+    <link rel="stylesheet" href="/modules/Desktop.css" />
+    <DesktopEnviroment></DesktopEnviroment>
+  </>;
 };

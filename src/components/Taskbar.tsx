@@ -1,5 +1,5 @@
 import { HomeButton } from "@/components/HomeButton";
-import style from '@/style/Taskbar.css';
+import '@/style/Taskbar.css';
 import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { TaskbarEntry } from "@/components/TaskbarEntry";
 import { h } from "preact";
@@ -24,7 +24,6 @@ export function Taskbar({ }: Props) {
   }, []);
 
   return <div className='taskbar'>
-    <style>{style}</style>
     <HomeButton></HomeButton>
 
     <div className='taskbar-windows'>

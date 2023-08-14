@@ -1,8 +1,9 @@
 import { BootScreen } from "@/components/BootScreen";
 import { LazyLoaded } from "@/lib/LazyLoaded";
 import { h, Fragment, render } from "preact";
-import colors from "@/style/colors.css";
-import style from "@/style/index.css";
+import "@/style/colors.css";
+import "@/style/index.css";
+import "normalize.css";
 
 const root = document.getElementById('root');
 const MODULES_PATH = ['modules'];
@@ -28,7 +29,7 @@ type Props = {
 
 function App({ module }: Props) {
   return <>
-    <style>{colors}{style}</style>
+    <link rel="stylesheet" href="./index.css" />
     <LazyLoaded fallback={<BootScreen></BootScreen>} module={module}></LazyLoaded>
   </>;
 };

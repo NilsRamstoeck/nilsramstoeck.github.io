@@ -1,10 +1,10 @@
 
-import style from '@/style/Taskbar.css';
 import { WindowManagerContext } from "@/components/DesktopEnviroment";
 import { PlasmaWindow } from "@/components/PlasmaWindow";
 import type { PropsWithChildren } from 'preact/compat';
 import { h } from 'preact';
 import { useContext } from 'preact/hooks';
+import '@/style/Taskbar.css';
 
 type Props = Parameters<typeof PlasmaWindow>[0];
 
@@ -26,7 +26,6 @@ export function TaskbarEntry(props: PropsWithChildren<Props>) {
           window: props
         });
     }}>
-    <style>{style}</style>
       {title}
   </div>;
 }

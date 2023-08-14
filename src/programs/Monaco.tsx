@@ -14,5 +14,5 @@ export const MonacoEditorProgram = new Program({
 });
 
 function WindowContents() {
-  return <iframe src="/monaco" frameBorder="0"></iframe>;
+  return <iframe src="/monaco" width="100%" height="100%" frameBorder="0"></iframe>;
 }

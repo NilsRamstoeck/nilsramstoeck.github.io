@@ -2,9 +2,9 @@ import { PlasmaWindow } from '@/components/PlasmaWindow';
 import { Taskbar } from '@/components/Taskbar';
 import { WindowManager, WindowManagerReducer } from '@/lib/WindowManager';
 import { MonacoEditorProgram } from '@/programs';
-import style from '@/style/DesktopEnviroment.css';
 import { createContext, h } from 'preact';
 import { useEffect, useReducer } from 'preact/hooks';
+import '@/style/DesktopEnviroment.css';
 
 type Props = {
 };
@@ -26,11 +26,10 @@ export function DesktopEnviroment({ }: Props) {
   WindowManagerInstance = windowManager;
 
   useEffect(() => {
-    MonacoEditorProgram.launch(windowManager);
+    // MonacoEditorProgram.launch(windowManager);
   }, []);
 
   return <div className='desktop-enviroment'>
-    <style>{style}</style>
     <WindowManagerContext.Provider value={windowManager}>
 
       <div className="desktop">

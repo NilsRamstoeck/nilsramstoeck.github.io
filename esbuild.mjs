@@ -50,7 +50,8 @@ const buildContext = await context({
   alias: {
     'react': 'preact/compat'
   },
-  loader: { '.css': 'text', '.svg': 'dataurl' },
+  loader: { '.svg': 'dataurl', '.ttf': 'file', '.css':'css' },
+  external: ['*.png'],
   tsconfig: './tsconfig.json',
   logLevel: 'info'
 });

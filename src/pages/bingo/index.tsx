@@ -1,6 +1,8 @@
 import { h, Fragment, render } from "preact";
-import style from '@/style/bingo.css';
 import { Board } from "@/components/bingo/Board";
+import '@/style/bingo.css';
+import "normalize.css";
+
 const root = document.getElementById('root');
 
 if (!root) throw new Error('<preact> No root element');
@@ -15,7 +17,7 @@ type Props = {
 
 function App({ }: Props) {
   return <>
-    <style>{style}</style>
+    <link rel="stylesheet" href="./index.css" />
     <img id="logo" src="bingo.png" alt="" />
     <Board></Board>
   </>;
