@@ -1,5 +1,5 @@
 import { h, Fragment, render } from "preact";
-import { Board } from "@/components/bingo/Board";
+import { Bingo } from "@/components/bingo/Bingo";
 import '@/style/bingo.css';
 import "@/style/fullscreen.css";
 import "normalize.css";
@@ -19,7 +19,6 @@ type Props = {
 function App({ }: Props) {
   return <>
     <link rel="stylesheet" href="./index.css" />
-    <img id="logo" src="bingo.png" alt="" />
-    <Board></Board>
+    <Bingo></Bingo>
   </>;
 };

@@ -1,24 +1,30 @@
 #logo {
-  max-width: 100%;
+  width: 100%;
+  max-width: 1050px;
 }
 
 body {
-  font-size: min(2vw, 2vh );
+  font-size: min(2vw, 2vh);
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.bingo-container {
+  height: 100%;
   background-color: white;
+}
+
+.bingo-container > img {
+  margin: auto;
 }
 
 .board {
   position: relative;
-  width: min(80vh, 80vw);
-  height: min(80vh, 80vw);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  max-width: 80%;
+  max-height: 70%;
   aspect-ratio: 1/1;
+  margin: auto;
 }
 
 .board>img {
@@ -30,19 +36,18 @@ body {
 }
 
 .board>.fields {
-  position: absolute;
+  max-width: 100%;
   display: grid;
   grid-template-columns: repeat(5, auto);
   grid-template-rows: repeat(5, auto);
   font-size: 1.1em;
-  left: min(9vw, 9vh);
-  top: min(7vw, 7vh);
+  padding: 10%;
 }
 
 .board>.fields>.field {
   background-color: white;
-  width: calc(min(63vh, 63vw) / 5);
-  height: calc(min(65vh, 65vw) / 5);
+  width: 100%;
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;

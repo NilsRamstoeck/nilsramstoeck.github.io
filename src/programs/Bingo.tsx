@@ -1,6 +1,8 @@
 import { Program } from "@/lib/Program";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
 import { h } from 'preact';
+import "@/style/bingo.css";
+import { Bingo } from "@/components/bingo/Bingo";
 
 export const BingoProgram = new Program({
   name: 'Bingo',
@@ -18,5 +20,5 @@ export const BingoProgram = new Program({
 });
 
 function WindowContents() {
-  return <span><iframe width='100%' height='100%' src="/bingo" frameBorder="0"></iframe></span>;
+  return <Bingo></Bingo>;
 }

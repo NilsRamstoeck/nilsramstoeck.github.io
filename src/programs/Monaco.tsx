@@ -1,3 +1,4 @@
+import { MonacoEditor } from "@/components/MonacoEditor";
 import { Program } from "@/lib/Program";
 import { h } from "preact";
 
@@ -14,5 +15,5 @@ export const MonacoEditorProgram = new Program({
 });
 
 function WindowContents() {
-  return <iframe src="/monaco" width="100%" height="100%" frameBorder="0"></iframe>;
+  return <MonacoEditor></MonacoEditor>;
 }

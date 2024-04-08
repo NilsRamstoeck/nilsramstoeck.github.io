@@ -1,7 +1,7 @@
 import { PlasmaWindow } from '@/components/PlasmaWindow';
 import { Taskbar } from '@/components/Taskbar';
 import { WindowManager, WindowManagerReducer } from '@/lib/WindowManager';
-import { MonacoEditorProgram } from '@/programs';
+import { BingoProgram } from '@/programs';
 import { createContext, h } from 'preact';
 import { useEffect, useReducer } from 'preact/hooks';
 import '@/style/DesktopEnviroment.css';
@@ -26,6 +26,8 @@ export function DesktopEnviroment({ }: Props) {
   WindowManagerInstance = windowManager;
 
   useEffect(() => {
+    BingoProgram.launch(windowManager);
+    // MonacoEditorProgram.launch(windowManager);
     // MonacoEditorProgram.launch(windowManager);
   }, []);
 

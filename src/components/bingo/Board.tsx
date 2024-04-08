@@ -2,7 +2,7 @@ import { h } from "preact";
 
 export function Board() {
   return <div className="board">
-    <img src="bingo_board.png" alt="" />
+    <img src="/bingo/bingo_board.png" alt="" />
     <div className="fields">
       {
         (() => [...new Array(25)].map(_ =>
